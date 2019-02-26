@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script>
+  /*const kk = {
+      name:'jscoder',
+      skill:['key','key1','key2'],
+      sayName(){
+          for(let i = 0,len =this.skill.length;i<len;i++){
+              setTimeout(()=>{
+                  console.log(this.name)
+                  console.log(this.skill[i])
+                  console.log('-------------')
+              },0)
+              console.log(i+1)
+          }
+      }
+  }
+  kk.sayName()*/
+  /*if (!Function.prototype.bind) {
+    Function.prototype.bind = function (oThis) {
+      if (typeof this !== "function") {
+        // closest thing possible to the ECMAScript 5 internal IsCallable function
+        throw new TypeError("Function.prototype.bind - what is trying to be bound is not callable");
+      }
+
+      var aArgs = Array.prototype.slice.call(arguments, 1),
+          fToBind = this,
+          fNOP = function () {},
+          fBound = function () {
+            return fToBind.apply(this instanceof fNOP && oThis
+                                   ? this
+                                   : oThis || window,
+                                 aArgs.concat(Array.prototype.slice.call(arguments)));
+          };
+
+      fNOP.prototype = this.prototype;
+      fBound.prototype = new fNOP();
+      return fBound;
+    };
+  }*/
+  function Animal(name,color) {
+      this.name = name;
+      this.color = color;
+  }
+  Animal.prototype.say = function() {
+    return `i'm a ${this.color} ${this.name}`
+  }
+  const Cat = Animal.bind(null,'cat');
+  const cat = new Cat('white');
+  console.log(cat.say())
+  if(cat.say()==='i\'m a white cat' && cat instanceof Cat && cat instanceof Animal){
+      console.log('success')
+  }
+</script>
+</head>
+<body>
+
+</body>
+</html>

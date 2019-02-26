@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+Function.prototype.myCall = function (context) {
+    var context = context || window;
+    //context = {obj.xx :123}
+    context.fn = this;
+    //context = {obj:123,fu = function(){console.log(this.obj)}}
+    var args = [...arguments].slice(1);
+    context.fn(...args)
+};
+var objjjj = {
+    ddk : 100
+}
+
+    // (function() {console.log(1)})
+function dd() {
+    console.log('23',this.ddk);
+    console.log(arguments)
+}
+dd.myCall(objjjj,'kkkkk')
+</script>
+</body>
+</html>

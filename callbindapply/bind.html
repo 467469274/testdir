@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+Object.prototype.mybind= function(context) {
+    let _this = this;
+    let args = [...arguments].slice(1);
+    console.log(arguments)
+    return function F() {
+        console.log(arguments)
+        return _this.apply(context,args.concat(...arguments))
+    }
+}
+let objjjj = {ddk:123}
+function dd() {
+    console.log(arguments)
+}
+var cc = dd.mybind(objjjj,1,2,3,45,5,6,222)
+console.log(z)
+</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="http://www.w3school.com.cn/jquery/jquery.js"></script>
+</head>
+<body>
+<script>
+    $.ajax({
+        type: "GET",data:{list:[28, 27, 26, 25, 24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9]},
+        url: "http://wx.wangtiansoft.com:50020/server/modules/user/downloadExcel",
+        success: function(data) {
+            console.log(data);
+        },
+        beforeSend: function(xhr) {
+            xhr.setRequestHeader("x-access-token", "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOiIxIn0.mCDZeoHB4JGQVIpI_TT4pdXDZ11L3tyeyzqd1uQ2YUE");
+        }
+    });
+</script>
+</body>
+</html>

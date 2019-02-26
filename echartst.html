@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="echarts.min.js"></script>
+  <script>
+</script>
+</head>
+<body>
+    <div id="main" style="width: 600px;height:500px;"></div>
+</body>
+<script>
+ var myChart = echarts.init(document.getElementById('main'));
+
+  option = {
+      title: {
+          text: '基础雷达图'
+      },
+      tooltip: {//提示狂组件
+                        show:true,//是否显示
+                        // trigger:"item",
+                        backgroundColor:"rgba(170,230,248,0.5)",//提示框背景色
+                        enterable:true,//鼠标是否可进入提示框浮层中，默认为false，如需详情内交互，如添加链接，按钮，可设置为 true。
+                        confine:true,//是否将 tooltip 框限制在图表的区域内。
+                        textStyle:{//提示框浮层的文本样式。
+                            color:"#086683",
+                            fontSize:12,
+                        }},
+      legend: {
+          data: ['预算分配', '实际开销']
+      },
+      radar: {
+          // shape: 'circle',
+          name: {
+              textStyle: {
+                  color: '#fff',
+                  backgroundColor: '#999',
+                  borderRadius: 3,
+                  padding: [3, 5]
+             }
+          },
+          indicator: [
+             { name: '销售', max: 35,axisLabel: {
+                                                     show: true,
+                                                     fontSize: 12,
+                                                     color: '#838D9E',
+                                                                                       showMaxLabel: true,
+                                                                                       showMinLabel: false,
+                                                 }},
+             { name: '管理', max: 30,axisLabel: {
+                                                                                       show: true,
+                                                                                       fontSize: 12,
+                                                                                       color: '#838D9E',
+                                                                                       showMaxLabel: true,
+                                                                                       showMinLabel: false,
+                                                                                   }},
+             { name: '信息技术', max: 25,axisLabel: {
+                                                                                         show: true,
+                                                                                         fontSize: 12,
+                                                                                         color: '#838D9E',
+                                                                                       showMaxLabel: true,
+                                                                                       showMinLabel: false,
+                                                                                     }},
+             { name: '客服', max: 20,axisLabel: {
+                                                                                       show: true,
+                                                                                       fontSize: 12,
+                                                                                       color: '#838D9E',
+                                                                                       showMaxLabel: true,
+                                                                                       showMinLabel: false,
+                                                                                   }},
+             { name: '研发', max: 15,axisLabel: {
+                                                                                       show: true,
+                                                                                       fontSize: 12,
+                                                                                       color: '#838D9E',
+                                                                                       showMaxLabel: true,
+                                                                                       showMinLabel: false,
+                                                                                   }},
+             { name: '市场', max: 10,axisLabel: {
+                                                                                       show: true,
+                                                                                       fontSize: 12,
+                                                                                       color: '#838D9E',
+                                                                                       showMaxLabel: true,
+                                                                                       showMinLabel: false,
+                                                                                   }}
+          ]
+      },
+      series: [{
+          name: '预算 vs 开',
+          type: 'radar',
+          // areaStyle: {normal: {}},
+          data : [
+              {
+                  value : [30, 25, 20, 15, 10, 5],
+                  name : '预算分配'
+              },
+               {
+                  value : [32, 27, 23, 18, 13, 5],
+                  name : '实际开销'
+              }
+          ]
+      }]
+  };
+  myChart.setOption(option);
+</script>
+</html>
